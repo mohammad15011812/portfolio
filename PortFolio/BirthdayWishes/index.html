@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #1a1a2e, #000);
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+/* ================= SCENES ================= */
+.scene {
+    position: absolute;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#scene1 { display: flex; }
+
+/* ================= 3D BUTTON ================= */
+.btn3d {
+    margin-top: 30px;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(45deg,#ff5e99,#ff9966);
+    box-shadow:
+        0 8px 0 #c94c6a,
+        0 15px 25px rgba(0,0,0,.5);
+    transition: all .15s;
+}
+
+.btn3d:active {
+    transform: translateY(6px);
+    box-shadow:
+        0 2px 0 #c94c6a,
+        0 5px 10px rgba(0,0,0,.4);
+}
+
+/* ================= PROFESSIONAL GIFT BOX ================= */
+.gift-box {
+    width: 240px;
+    height: 200px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #b71c1c, #7f0000);
+    border-radius: 14px;
+    position: relative;
+    box-shadow:
+        inset 0 5px 10px rgba(255,255,255,.2),
+        0 30px 45px rgba(0,0,0,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #ffecec;
+    text-shadow: 0 2px 6px rgba(0,0,0,.9);
+}
+
+/* RIBBONS */
+.ribbon {
+    position: absolute;
+    background: linear-gradient(#ffd700,#e6b800);
+    box-shadow: inset 0 0 4px rgba(0,0,0,.4);
+}
+
+.ribbon.vertical {
+    width: 22px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ribbon.horizontal {
+    height: 22px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* LID */
+.lid {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(145deg,#d32f2f,#8e0000);
+    top: -70px;
+    border-radius: 14px 14px 0 0;
+    transform-origin: bottom;
+    transition: transform 1.4s ease;
+    box-shadow: 0 15px 30px rgba(0,0,0,.6);
+}
+
+/* BOW */
+.bow {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.bow span {
+    width: 28px;
+    height: 18px;
+    background: linear-gradient(#ffd700,#e6b800);
+    border-radius: 50% 50% 40% 40%;
+    box-shadow: inset 0 0 4px rgba(0,0,0,.4);
+}
+
+.gift-box.open .lid {
+    transform: rotateX(140deg);
+}
+
+/* ================= QUOTE ================= */
+#scene2 {
+    font-size: 2rem;
+    padding: 40px;
+    animation: fadeIn 2s forwards;
+}
+
+/* ================= NAME TYPING ================= */
+#scene3 h1 {
+    font-size: 4rem;
+    color: #ffb3e6;
+    text-shadow: 0 0 25px #ff5e99;
+}
+
+/* ================= FINAL SCENE ================= */
+#scene4 {
+    font-size: 1.6rem;
+    gap: 20px;
+}
+
+/* SLIDESHOW */
+.slideshow {
+    width: 300px;
+    height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,.7);
+    margin-bottom: 20px;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fade 4s infinite;
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    50% { opacity: 1; }
+    60% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 15px hotpink; }
+    to { text-shadow: 0 0 35px gold; }
+}
+</style>
+</head>
+<body>
+
+<!-- SCENE 1 -->
+<div class="scene" id="scene1">
+    <div class="gift-box" id="gift">
+        <div class="lid">
+            <div class="bow">
+                <span></span><span></span>
+            </div>
+        </div>
+        <div class="box">
+            <div class="ribbon vertical"></div>
+            <div class="ribbon horizontal"></div>
+            <span class="gift-text">OPEN THE GIFT</span>
+        </div>
+    </div>
+    <button class="btn3d" onclick="openGift()">Open 🎁</button>
+</div>
+
+<!-- SCENE 2 -->
+<div class="scene" id="scene2">
+    <p>
+        “Happy Birthday, sweetheart. Being with you is my favorite part of every day, and I wish you endless smiles and love today.” “You make my world brighter, my heart fuller, and my life happier. Happy Birthday to the one I adore.”
+    </p>
+    <button class="btn3d" onclick="nextScene()">Next ✨</button>
+</div>
+
+<!-- SCENE 3 -->
+<div class="scene" id="scene3">
+    <h1 id="name"></h1>
+    <button class="btn3d" onclick="nextScene()">CLICK HERE NOW 🌹</button>
+</div>
+
+<!-- SCENE 4 -->
+<div class="scene" id="scene4">
+    <div class="slideshow">
+        <img id="slide" src="photo1.jpg">
+    </div>
+
+    <p>
+        Happy Birthday to you! 🎉<br>
+        May this year bring you good health,<br>
+        endless happiness, success in everything you do,<br>
+        and beautiful moments to cherish forever.<br><br>
+        🌹 Wishing you a life full of love and blessings 🌹
+    </p>
+
+    <button class="btn3d" onclick="restart()">Restart 🔄</button>
+</div>
+
+<script>
+const scenes = document.querySelectorAll(".scene");
+let current = 0;
+
+function showScene(i) {
+    scenes.forEach(s => s.style.display = "none");
+    scenes[i].style.display = "flex";
+}
+showScene(current);
+
+/* 🎁 OPEN GIFT */
+function openGift() {
+    document.getElementById("gift").classList.add("open");
+    setTimeout(nextScene, 1600);
+}
+
+/* ▶ NEXT */
+function nextScene() {
+    current++;
+    showScene(current);
+    if (current === 2) typeName();
+    if (current === 3) startSlideshow();
+}
+
+/* 🔁 RESTART */
+function restart() {
+    location.reload();
+}
+
+/* ✍️ NAME TYPING */
+const nameText = "HAPPY BIRTHDAY 'your name'";
+let index = 0;
+
+function typeName() {
+    const el = document.getElementById("name");
+    el.style.animation = "glow 2s infinite alternate";
+    const interval = setInterval(() => {
+        el.textContent += nameText[index];
+        index++;
+        if (index === nameText.length) clearInterval(interval);
+    }, 120);
+}
+
+/* 🖼️ SLIDESHOW */
+const photos = ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg"];
+let slideIndex = 0;
+
+function startSlideshow() {
+    setInterval(() => {
+        slideIndex = (slideIndex + 1) % photos.length;
+        document.getElementById("slide").src = photos[slideIndex];
+    }, 4000);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body.light {
+    --bg: #f9f9f9;
+    --text: #222;
+    --card: rgba(255,255,255,0.65);
+}
+
+body.dark-mode {
+    --bg: #0f0f0f;
+    --text: #fff;
+    --card: rgba(30,30,30,0.65);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* NAV */
+header {
+    position: fixed;
+    width: 100%;
+    background: #111;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo { color: #00adb5; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* PROFILE */
+.profile-section {
+    height: 100vh;
+    background: linear-gradient(135deg, #00adb5, #222);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+.glass {
+    background: var(--card);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+}
+
+.profile-card {
+    padding: 40px;
+    text-align: center;
+    width: 340px;
+}
+
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 4px solid #00adb5;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00adb5;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* SECTIONS */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.dark {
+    background: #111;
+    color: white;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.skills-container span {
+    background: #00adb5;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+/* PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00adb5;
+    text-decoration: none;
+}
+
+footer {
+    background: #000;
+    color: #aaa;
+    text-align: center;
+    padding: 15px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .profile-card { width: 90%; }
+}

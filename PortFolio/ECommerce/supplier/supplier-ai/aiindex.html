@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Product Listing</title>
+  <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+  <main class="container">
+    <div class="form-card">
+      <h1>AI Product Listing</h1>
+
+      <form id="ai-form" enctype="multipart/form-data" method="post">
+        <label class="label">Product image</label>
+        <input class="input-file" type="file" name="image" id="image" accept="image/*" required>
+
+        <label class="label">Optional title</label>
+        <input type="text" name="title" id="title" placeholder="Product title">
+
+        <div class="actions">
+          <button class="btn" type="submit" id="generate-btn">Generate Listing</button>
+          <span id="status" class="helper"></span>
+        </div>
+      </form>
+
+      <pre id="result" style="white-space:pre-wrap;margin-top:12px;"></pre>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('ai-form');
+    const status = document.getElementById('status');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Uploading...';
+      result.textContent = '';
+      const fd = new FormData(form);
+
+      try {
+        const res = await fetch('./generate_ai_listing.php', {
+          method: 'POST',
+          body: fd
+          // IMPORTANT: do NOT set custom headers like 'Content-Type' here,
+          // letting the browser set multipart/form-data avoids preflight in many cases.
+        });
+
+        status.textContent = `HTTP ${res.status}`;
+        const json = await res.json();
+        if (!res.ok) {
+          result.textContent = JSON.stringify(json, null, 2);
+          return;
+        }
+        result.textContent = JSON.stringify(json, null, 2);
+      } catch (err) {
+        status.textContent = 'Network error';
+        result.textContent = String(err);
+      }
+    });
+  </script>
+
+  <script>
+  const form = document.getElementById('ai-form');
+  const status = document.getElementById('status');
+  const result = document.getElementById('result');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = 'Uploading...';
+    result.textContent = '';
+    const fd = new FormData(form);
+
+    try {
+      const res = await fetch('./generate_ai_listing.php', {
+        method: 'POST',
+        body: fd
+      });
+
+      status.textContent = `HTTP ${res.status}`;
+
+      // read raw text first so we can show HTML error pages
+      const text = await res.text();
+
+      // try parse JSON
+      try {
+        const json = JSON.parse(text);
+        if (!res.ok) {
+          result.textContent = JSON.stringify(json, null, 2);
+          console.error('Server returned error JSON:', json);
+          return;
+        }
+        result.textContent = JSON.stringify(json, null, 2);
+      } catch (parseErr) {
+        // Not JSON — show raw response (likely HTML error)
+        result.textContent = text;
+        console.error('Response is not JSON. Raw response shown above.');
+      }
+    } catch (err) {
+      status.textContent = 'Network error';
+      result.textContent = String(err);
+      console.error('Fetch error:', err);
+    }
+  });
+</script>
+</body>
+</html>
