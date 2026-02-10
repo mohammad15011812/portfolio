@@ -1,115 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Hassan Shaikh | Portfolio</title>
-
-    <meta name="description" content="Hassan Shaikh – CSE Student & Web Developer Portfolio">
-    <link rel="stylesheet" href="style.css"/>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hassan Shaikh | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="light">
+<body>
 
-<header>
-    <nav class="container">
-        <h2 class="logo">HASSAN</h2>
+  <main>
+    <!-- PROFILE SECTION -->
+    <section class="hero-card">
+      <div class="profile-pic-container">
+        <img src="profile.jpeg" alt="Hassan Shaikh" class="profile-pic">
+      </div>
+      <div class="profile-text">
+        <h1 class="name">HASSAN SHAIKH</h1>
+        <p class="subtitle">B.E CSE Student (2nd Year)</p>
+        <p class="tagline">DEVELOPER | PROBLEM SOLVER | PROGRAMMER</p>
 
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <button id="theme-toggle">🌙</button>
-    </nav>
-</header>
-
-<!-- PROFILE -->
-<section class="profile-section">
-    <div class="profile-card glass">
-        <img src="profile.png" class="profile-pic section dark" id="skills" alt="Hassan Shaikh">
-
-        <h1>Hassan Shaikh</h1>
-        <h3>B.Tech CSE – 2nd Year</h3>
-        <p>Web Developer | Programmer | Problem Solver</p>
-
-        <a href="#projects" class="btn">View Projects</a>
-    </div>
-    <h2>Skills</h2>
-    <div class="skills-container">
-        <span>C</span><span>C++</span><span>Java</span><span>Python</span>
-        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span>
-    </div>
-</section>
-
-<section id="projects" class="section container">
-    <h2>Projects</h2>
-
-    <div class="projects-grid">
-        <div class="project-card">
-            <h3>Birthday Wishes</h3>
-            <p>Creative birthday wishes website.</p>
-            <a href="BirthdayWishes/index.html" target="_blank">Live Demo</a>
+        <div class="skills-container">
+          <span class="skill">C</span>
+          <span class="skill">C++</span>
+          <span class="skill">Python</span>
+          <span class="skill">Java</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">MongoDB</span>
+          <span class="skill">React</span>
         </div>
+      </div>
+    </section>
 
-        <div class="project-card">
-            <h3>E-Commerce Website</h3>
-            <p>Online shopping & selling platform.</p>
-            <a href="ECommerce/index.html" target="_blank">Live Demo</a>
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section">
+      <h2>PROJECTS</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <h3>Birthday Wishes</h3>
+          <p>Creative birthday wishes website.</p>
+          <a href="BirthdayWishes/index.html" target="_blank">Live Demo</a>
         </div>
-
-        <div class="project-card">
-            <h3>Snake Game</h3>
-            <p>Classic JavaScript snake game.</p>
-            <a href="SnakeGame/index.html" target="_blank">Play Now</a>
+        <div class="project">
+          <h3>E-Commerce Website</h3>
+          <p>Online shopping & selling platform.</p>
+          <a href="ECommerce/index.html" target="_blank">Live Demo</a>
         </div>
-
-        <div class="project-card">
-            <h3>Wedding Wishes</h3>
-            <p>Beautiful wedding wishes 🚀</p>
-            <a href="WeddingWishes/index.html" target="_blank">Live Demo</a>
+        <div class="project">
+          <h3>Snake Game</h3>
+          <p>Classic JavaScript snake game.</p>
+          <a href="SnakeGame/index.html" target="_blank">Play Now</a>
         </div>
-        <div class="project-card">
-            <h3>Web Developing Tutorial</h3>
-            <p>here you can learn in detail how to build an app/website</p>
-            <a href="WebDeveloping/index.html" target="_blank">Live Demo</a>
+        <div class="project">
+          <h3>Wedding Wishes</h3>
+          <p>Beautiful wedding wishes 🚀</p>
+          <a href="WeddingWishes/index.html" target="_blank">Live Demo</a>
         </div>
-        <div class="project-card coming">
-            <h3>More Projects</h3>
-            <p>Coming soon 🚀</p>
+        <div class="project">
+          <h3>Web Tutorial</h3>
+          <p>Learn to build websites step by step.</p>
+          <a href="WebDeveloping/index.html" target="_blank">Live Demo</a>
         </div>
-    </div>
-</section>
+        <div class="project">
+          <h3>Calculator App</h3>
+          <p>Simple JS calculator for daily use.</p>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+        <div class="project">
+          <h3>Portfolio Design</h3>
+          <p>My personal portfolio website.</p>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+        <div class="project">
+          <h3>Coming Soon</h3>
+          <p>More projects will be added soon 🚀</p>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+    </section>
 
-<section id="about" class="section container">
-    <h2>About Me</h2>
-    <p>
-        Second-year Computer Science Engineering student passionate about web development,
-        problem solving and building real-world applications.
-    </p>
-</section>
+    <!-- ABOUT SECTION -->
+    <section class="about-card">
+      <h2>ABOUT ME</h2>
+      <p>
+        I am a passionate B.E CSE student who loves web development, programming, and solving real-world problems.
+        I enjoy building projects that help people and showcase creativity and technical skills.
+      </p>
+    </section>
+  </main>
 
-<section id="contact" class="section dark">
-    <h2>Contact</h2>
-    <p>Email:
-        <a href="mailto:hassanshaikh77866@gmail.com">
-            hassanshaikh77866@gmail.com
-        </a>
-    </p>
-    <p>GitHub:
-        <a href="https://github.com/mdhassan75543-collab" target="_blank">
-            github.com/mdhassan75543-collab
-        </a>
-    </p>
-</section>
-
-<footer>
+  <!-- FOOTER -->
+  <footer>
     <p>© 2026 Hassan Shaikh</p>
-</footer>
+  </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
